@@ -1,3 +1,6 @@
+用于学习Eureka的demo
+
+
 #server
 [eureka](http://localhost:8761/#/)
 
