@@ -11,3 +11,7 @@ spring:
   application:
     name: client1
 
+feign:
+  httpclient:
+    enabled: true
+
