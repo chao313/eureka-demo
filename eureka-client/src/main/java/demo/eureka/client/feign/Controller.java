@@ -1,24 +1,36 @@
 package demo.eureka.client.feign;
 
-//import demo.eureka.client.feign.FeignService;
+//import demo.eureka.client.feign.FeignBaiduService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping(value = "/feign")
 public class Controller {
 
-    @Autowired
-    private FeignService feignService;
+    @Resource
+    private FeignBaiduService feignBaiduService;
+
+    @Resource
+    private FeignGitHubApiService feignGitHubApiService;
 
     @GetMapping(value = "/feign/github/api")
-    public String search(@RequestParam(value = "q") String q) {
+    public ResponseEntity<byte[]> githubSearch(@RequestParam(value = "q") String q) {
 
-        return feignService.searchRepo(q);
+        return feignGitHubApiService.searchRepo(q);
+    }
+
+    @GetMapping(value = "/feign/baidu/api")
+    public ResponseEntity<byte[]> baiduSearch(@RequestParam(value = "q") String q) {
+
+        return feignBaiduService.searchRepo(q);
     }
 
 }

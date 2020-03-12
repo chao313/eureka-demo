@@ -11,7 +11,35 @@ spring:
   application:
     name: client1
 
+
+
+#feign:
+#  client:
+#    config:
+#      feignName:                                            #需要配置FeignClient的名字
+#        connectTimeout: 5000                                #链接超时时间
+#        readTimeout: 5000                                   #读超时时间
+#        loggerLevel: full                                   #配置FeignClient的日志级别
+#        errorDecoder: com.example.SimpleErrorDecoder        #错误解码器
+#        retryer: com.example.SimpleRetryer                  #重试配置
+#        requestInterceptors:                                #配置拦截器
+#        - com.example.FooRequestInterceptor
+#        - com.example.BarRequestInterceptor
+#        decode404: false
+#        encoder: com.example.SimpleEncoder                  #Feign编码器
+#        decoder: com.example.SimpleDecoder                  #Feign解码器
+#        contract: com.example.SimpleContract                #Feign的Contract链接
+
+
 feign:
-  httpclient:
-    enabled: true
+  client:
+    config:
+      default:
+        loggerLevel: full
+        connectTimeout: 5000
+        readTimeout: 5000
+
+logging:
+  level:
+    demo.eureka.client: debug
 
