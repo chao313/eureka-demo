@@ -12,11 +12,11 @@ import java.util.Map;
  * 用于调用provider提供服务Controller
  */
 @RestController
-@RequestMapping(value = "/feign/provider")
-public class FeignProviderController {
+@RequestMapping(value = "/feign/getAndPostProvider")
+public class FeignGetAndPostProviderController {
 
     @Resource
-    private FeignProviderService feignService;
+    private FeignGetAndPostProviderService feignService;
 
     @ApiOperation(value = "Feign 采用POST的方式去传递参数", notes = "1.这里需要使用 @RequestBody")
     @PostMapping(value = "/postUserDetail")

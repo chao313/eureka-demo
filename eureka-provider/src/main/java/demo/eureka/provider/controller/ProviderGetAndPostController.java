@@ -12,8 +12,8 @@ import java.util.Map;
  * 提供服务者的Controller
  */
 @RestController
-@RequestMapping(value = "/providerController")
-public class ProviderController {
+@RequestMapping(value = "/providerGetAndPostController")
+public class ProviderGetAndPostController {
 
     /**
      * 暴露的http服务

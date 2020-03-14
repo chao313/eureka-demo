@@ -18,14 +18,14 @@ import java.util.Map;
  * 2.似乎只能存在一个参数
  */
 @FeignClient("provider")
-public interface FeignProviderService {
+public interface FeignGetAndPostProviderService {
 
     /**
      * 这里采用了POST的方式
      * <p>
      * value 指定了调用URL的路径
      */
-    @RequestMapping(value = "/providerController/postUserDetail", method = RequestMethod.POST)
+    @RequestMapping(value = "/providerGetAndPostController/postUserDetail", method = RequestMethod.POST)
     ResponseEntity<byte[]> postUserDetail(@RequestBody User user);
 
     /**
@@ -33,7 +33,7 @@ public interface FeignProviderService {
      * <p>
      * value 指定了调用URL的路径
      */
-    @RequestMapping(value = "/providerController/getUserDetail/useFields", method = RequestMethod.GET)
+    @RequestMapping(value = "/providerGetAndPostController/getUserDetail/useFields", method = RequestMethod.GET)
     ResponseEntity<byte[]> getUserDetailUseFields(@RequestParam(value = "name") String name, @RequestParam(value = "age") String age);
 
     /**
@@ -41,7 +41,7 @@ public interface FeignProviderService {
      * <p>
      * value 指定了调用URL的路径
      */
-    @RequestMapping(value = "/providerController/getUserDetail/useMap", method = RequestMethod.GET)
+    @RequestMapping(value = "/providerGetAndPostController/getUserDetail/useMap", method = RequestMethod.GET)
     ResponseEntity<byte[]> getUserDetailUseMap(@RequestParam(value = "map") Map<String, String> map);
 
 
@@ -50,7 +50,7 @@ public interface FeignProviderService {
      * <p>
      * value 指定了调用URL的路径
      */
-    @RequestMapping(value = "/providerController/getUserDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/providerGetAndPostController/getUserDetail", method = RequestMethod.GET)
     ResponseEntity<byte[]> getUserDetail(User user);
 
 }
