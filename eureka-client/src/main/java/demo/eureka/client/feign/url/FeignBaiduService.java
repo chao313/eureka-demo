@@ -1,4 +1,4 @@
-package demo.eureka.client.feign;
+package demo.eureka.client.feign.url;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

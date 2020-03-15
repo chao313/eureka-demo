@@ -1,4 +1,4 @@
-package demo.eureka.client.feign;
+package demo.eureka.client.feign.url;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;

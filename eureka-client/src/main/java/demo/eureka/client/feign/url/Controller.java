@@ -1,8 +1,7 @@
-package demo.eureka.client.feign;
+package demo.eureka.client.feign.url;
 
-//import demo.eureka.client.feign.FeignBaiduService;
+//import demo.eureka.client.feign.url.FeignBaiduService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

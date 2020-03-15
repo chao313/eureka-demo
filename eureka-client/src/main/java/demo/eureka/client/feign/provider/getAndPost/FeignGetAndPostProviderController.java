@@ -1,4 +1,4 @@
-package demo.eureka.client.provider;
+package demo.eureka.client.feign.provider.getAndPost;
 
 import demo.eureka.base.pojo.User;
 import io.swagger.annotations.ApiOperation;

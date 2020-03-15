@@ -149,7 +149,7 @@
 //    private volatile boolean isSecurePortEnabled = false;
 //    private volatile boolean isUnsecurePortEnabled = true;
 //
-//    public interface DataCenterInfo {
+//    public inter DataCenterInfo {
 //        enum Name {Netflix, Amazon, MyOwn}
 //
 //        com.netflix.appinfo.DataCenterInfo.Name getName();
