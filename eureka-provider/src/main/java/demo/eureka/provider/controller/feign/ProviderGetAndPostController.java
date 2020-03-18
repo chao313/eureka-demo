@@ -1,4 +1,4 @@
-package demo.eureka.provider.controller;
+package demo.eureka.provider.controller.feign;
 
 import demo.eureka.base.pojo.User;
 import demo.eureka.base.pojo.UserDetail;

@@ -1,4 +1,4 @@
-package demo.eureka.provider.controller;
+package demo.eureka.provider.controller.feign;
 
 import demo.eureka.base.framework.Code;
 import demo.eureka.base.framework.Response;

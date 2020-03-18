@@ -6,13 +6,13 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+#      defaultZone: http://eureka.springcloud.cn/eureka/
 #    register-with-eureka: true
 #    fetch-registry: true
 
 spring:
   main:
-    ## @FeignClient(value = "服务名") 设置可以有多个类存在相同的FeignClient 中的value值
-    allow-bean-definition-overriding: true
+    allow-bean-definition-overriding: true #@FeignClient(value = "服务名") 设置可以有多个类存在相同的FeignClient 中的value值
   application:
     name: client
 
@@ -37,6 +37,8 @@ spring:
 
 
 feign:
+  hystrix:
+    enabled: false
   okhttp:
     enabled: true
   client:
@@ -50,3 +52,18 @@ logging:
   level:
     demo.eureka.client: debug
 
+##配置的方式指定轮询策略
+provider:
+  ribbon:
+    #listOfServers: http://localhost:8082 #当eureka禁用的时候,手动指定的服务
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+
+provider2:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+ribbon:
+  eureka:
+    enabled: true

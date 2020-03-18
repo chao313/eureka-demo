@@ -16,7 +16,7 @@ import java.util.Map;
  * 用于调用provider提供服务Controller
  */
 @RestController
-@RequestMapping(value = "/feign/ribbonProvider")
+@RequestMapping(value = "/feign/ribbon")
 public class RibbonProviderController {
 
     /**
@@ -26,12 +26,16 @@ public class RibbonProviderController {
     private RestTemplate restTemplate;
 
     @ApiOperation(value = "Feign 采用POST的方式去传递参数", notes = "")
-    @PostMapping(value = "/postUserDetail")
-    public UserDetail postUserDetail(@RequestBody User user) {
-
+    @PostMapping(value = "/Provider/postRibbonUserDetail")
+    public UserDetail postRibbonUserDetail(@RequestBody User user) {
         return restTemplate.postForObject("http://provider/providerRibbonController/postRibbonUserDetail", user, UserDetail.class);
-
     }
 
+    @ApiOperation(value = "Feign 采用POST的方式去传递参数", notes = "")
+    @PostMapping(value = "/Provider2/postRibbonUserDetail")
+    public UserDetail postRibbonUserDetail2(@RequestBody User user) {
 
+        return restTemplate.postForObject("http://provider2/providerRibbonController/postRibbonUserDetail", user, UserDetail.class);
+
+    }
 }
