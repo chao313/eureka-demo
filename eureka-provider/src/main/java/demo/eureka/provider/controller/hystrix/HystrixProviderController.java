@@ -1,6 +1,7 @@
 package demo.eureka.provider.controller.hystrix;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.exception.HystrixBadRequestException;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +29,28 @@ public class HystrixProviderController {
      * 参数:  必须要和调用者的参数一致
      * 返回值: 必须为调用者的本身或则子类
      */
-    public String fallbackMethod(Integer divisor, Integer dividend) {
-        return "发生异常,被除数为0";
+    public String fallbackMethod(Integer divisor, Integer dividend, Throwable throwable) {
+        return "fallbackMethod执行 - 发生异常,被除数为0" + "调用方法的异常" + throwable.getMessage();
+    }
+
+
+    @ApiOperation(value = "hystrix 测试断路的 HystrixBadRequestException ", notes = "这个方法会抛出  HystrixBadRequestException 并不会被Hystrix捕获")
+    @HystrixCommand(fallbackMethod = "fallbackMethod")
+    @GetMapping(value = "/Provider/getHystrixBadRequestException")
+    public String getHystrixBadRequestException() {
+        throw new HystrixBadRequestException("这里主动抛出HystrixBadRequestException");
+    }
+
+
+    @ApiOperation(value = "hystrix 测试断路的 RuntimeException ", notes = "这个方法会抛出  RuntimeException 会被Hystrix捕获")
+    @HystrixCommand(fallbackMethod = "fallbackMethod")
+    @GetMapping(value = "/Provider/getRuntimeException")
+    public String getRuntimeException() {
+        throw new RuntimeException("这里主动抛出 RuntimeException");
+    }
+
+    public String fallbackMethod() {
+        return "fallbackMethod执行 - 发生异常";
     }
 
 }
