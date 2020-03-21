@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8888
 
 
 eureka:
@@ -11,12 +11,5 @@ eureka:
 #    fetch-registry: true
 spring:
   application:
-    name: provider #指定服务的名称 这个服务名称可以给Feign来使用 , 作为路由
+    name: hystrixDashboard #指定服务的名称 这个服务名称可以给Feign来使用 , 作为路由
 
-
-# dashboard - 放开 hystrix
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream

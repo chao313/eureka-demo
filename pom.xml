@@ -19,6 +19,8 @@
         <module>eureka-client</module>
         <module>eureka-provider</module>
         <module>eureka-base</module>
+        <module>eureka-hystrix-dashboard</module>
+        <module>eureka-hystrix-dashboard-turbine</module>
     </modules>
 
     <dependencyManagement>
@@ -58,6 +60,27 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+
+        <!-- hystrix dashboard -->
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+
+        <!-- hystrix dashboard 需要依赖 actuator!!!-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- turbine 整合 hystrix dashboard-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
 

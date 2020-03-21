@@ -1,0 +1,16 @@
+server:
+  port: 8889
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: hystrixDashboardTurbine #指定服务的名称 这个服务名称可以给Feign来使用 , 作为路由
+
+turbine:
+  app-config: provider,client
+  cluster-name-expression: "'default'"

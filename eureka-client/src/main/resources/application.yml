@@ -1,6 +1,12 @@
 server:
   port: 8081
 
+# dashboard - 放开 hystrix
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
 
 eureka:
   client:
@@ -38,7 +44,7 @@ spring:
 
 feign:
   hystrix:
-    enabled: false
+    enabled: true
   okhttp:
     enabled: true
   client:
@@ -67,3 +73,7 @@ provider2:
 ribbon:
   eureka:
     enabled: true
+
+
+
+

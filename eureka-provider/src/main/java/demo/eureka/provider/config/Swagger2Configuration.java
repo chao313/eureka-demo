@@ -35,6 +35,24 @@ public class Swagger2Configuration {
                 ;
     }
 
+    @Bean
+    public Docket hystrixDashBoard() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("org.springframework.boot.actuate"))
+                .paths(PathSelectors.any())
+                .build()
+                .genericModelSubstitutes(DeferredResult.class)//异步http请求
+                .forCodeGeneration(true)
+                .pathMapping("/")
+                .apiInfo(apiInfo())
+                .useDefaultResponseMessages(false)
+                .groupName("DashBoard")
+                ;
+    }
+
+
     /**
      * api描述信息
      *
