@@ -13,28 +13,24 @@
     <artifactId>eureka-config</artifactId>
 
     <dependencies>
-
         <!-- config 的 starter -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-
         <!-- config 的 server -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-
-        <!-- config 的 server -->
+        <!-- config 的 client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-client</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-
     </dependencies>
 
 </project>

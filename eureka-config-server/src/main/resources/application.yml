@@ -16,10 +16,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/chao313/config-server
+          uri: https://github.com/chao313/config-server #指定uri
           username: chao313
           password: Ys20140913
-          search-paths: config_dir
+          search-paths: config_dir #指定搜索的文件夹 用,号分割
           #basedir: gitwork #指定git的work地址
 
 
