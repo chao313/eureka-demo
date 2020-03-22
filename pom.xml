@@ -21,6 +21,8 @@
         <module>eureka-base</module>
         <module>eureka-hystrix-dashboard</module>
         <module>eureka-hystrix-dashboard-turbine</module>
+        <module>eureka-zuul</module>
+        <module>eureka-config</module>
     </modules>
 
     <dependencyManagement>

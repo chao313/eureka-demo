@@ -1,0 +1,54 @@
+server:
+  port: 5555
+
+
+##指定注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+##指定应用名
+spring:
+  application:
+    name: zuul
+
+##指定路由
+
+
+ribbon:
+  MaxAutoRetries: 10 #同一个服务的重试次数(除去首次)
+  MaxAutoRetriesNextServer: 0 #切换相同服务的数量
+
+
+zuul:
+  retryable: true #开启重试机制
+  add-host-header: true
+  sensitive-headers: postman-token #敏感头 -> 不会传给下游服务器
+  #禁用的服务名
+  #  ignored-patterns: /**/provider/**
+  #  ignored-services:
+
+  prefix: /pre #统一前缀
+  routes:
+    provider: ##指定zuul的所有的 /provider/** 都转发到 provider应用的**
+      path: /provider/**
+      serviceId: provider
+
+    local: ##重定向到本地服务
+      path: /local/**
+      url: forward:/localController
+
+    baidu: ##转发到物理的地址
+      path: /baidu/**
+      url: https://www.baidu.com
+
+
+
+
+
+
+
+
+
+
