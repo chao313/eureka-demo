@@ -19,6 +19,7 @@ import java.util.Map;
 @RequestMapping(value = "/config/client")
 public class ClientController {
 
+
     @Autowired
     private ConfigInfoFromConfigServerProperties configInfoFromConfigServerProperties;
 
@@ -26,5 +27,11 @@ public class ClientController {
     @GetMapping(value = "/ConfigInfoFromConfigServer")
     public String ConfigInfoFromConfigServer() {
         return configInfoFromConfigServerProperties.getInfo();
+    }
+
+    @ApiOperation(value = "测试重服务端获取配置")
+    @GetMapping(value = "/ConfigInfoFromConfigServer2")
+    public String ConfigInfoFromConfigServer2(String xx, Integer yy) {
+        throw new RuntimeException("xx");
     }
 }

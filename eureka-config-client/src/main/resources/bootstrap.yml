@@ -5,6 +5,6 @@ spring:
   cloud:
     config:
       label: master #git的版本
-      uri: http://192.168.0.104:9999 #config-server的地址
+      uri: http://192.168.0.102:9999 #config-server的地址
       name: config-info #应用名称
       profile: dev #偏好

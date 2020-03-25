@@ -10,7 +10,11 @@ eureka:
 
 
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh #打开refresh
 
 
 
